@@ -1,6 +1,75 @@
 # krs_encryptor.sh
 # Encrypts/decrypts text message.
 
+
+#--------------------------------------
+#Functions for sending text and email
+
+#sendEmailTo: sendEmailTo katlegolpk@me.com file.txt
+function sendEmailTo() {
+	#Storing email address to send to
+	emailAddress=$1
+
+	file=$2
+
+	echo "Sending $file to $emailAddress"
+	
+	mailx -s"Confidential" -a $file $emailAddress
+
+	#Inform that email has been sent
+	echo "Email has been sent to $emailAddress"
+}
+
+#sendTextTo: sendTextTo 1234567891 file.txt
+function sendTextTo() {
+        phoneNumber=$1
+        file=$(cat $2)
+
+
+        echo "Sending $file to $phoneNumber"
+
+        providerIncorrect=1
+
+        while [[ $providerIncorrect -eq 1 ]]
+        do
+                echo -n "What is the phone numbers network provider (eg T-Mobile)? "
+                read provider
+
+                case $provider in
+                        T-Mobile)
+                                echo "Sending text to T-Mobile number"
+                                echo $file | mailx $phoneNumber@vtmomail.com
+                                providerIncorrect=0
+                                ;;
+                        Verizon)
+                                echo "Sending text to Verizon number"
+                                echo $file | mailx $phoneNumber@vtmomail.com
+                                providerIncorrect=0
+                                ;;
+                        Sprint)
+                                echo "Sending text to Sprint number"
+                                echo $file | mailx $phoneNumber@vtmomail.com
+                                providerIncorrect=0
+                                ;;
+                        AT'&'T)
+                                echo "Sending text to AT&T number"
+                                echo $file | mailx $phoneNumber@txt.att.net
+                                providerIncorrect=0
+                                ;;
+                        *)
+                                echo "Provider entered has an error"
+                                echo "Options: T-Mobile"
+                                echo -e "\t AT&T"
+                                echo -e "\t Sprint"
+                                echo -e "\t Verizon"
+                                ;;
+                esac
+        done
+
+        echo "Text has been sent to $phoneNumber"       
+}
+
+
 checkentered_message_d="Have you entered the message you would like to decrypt into the text file 'discretetextfile.txt' (y/n)?"
 checkentered_message_e="Have you entered the message you would like to encrypt into the text file 'discretetextfile.txt' (y/n)?"
 encryptdecrypt_message="Would you like to encrypt or decrypt a message or exit the program (e = encrypt / d = decrypt / x = exit) (*encrypt is the default setting)?"
