@@ -1,5 +1,4 @@
 # unix_programming_final
-Unix Programming Final Project - Encryptor/Decryptor Shell Script
 
 Shell script program that utilizes a simple RSA encryption/decryption algorithm to encrypt/decrypt files.
 
