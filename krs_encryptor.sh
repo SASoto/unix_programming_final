@@ -3,10 +3,6 @@
 # Encrypts/decrypts plaintext messages using the RSA algorithm.
 # Built by Fordham Rose Hill students Kat Lego, Ronald Hung, and Saul Soto
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
 #--------------------------------------
 #Functions for sending text and email
 
@@ -14,7 +10,6 @@
 function sendEmailTo() {
 	#Storing email address to send to
 	emailAddress=$1
-<<<<<<< HEAD
 	file=$2
 	n_val=$3
 	d_val=$4
@@ -22,14 +17,6 @@ function sendEmailTo() {
 	echo "Sending $file to $emailAddress"
 	
 	echo "Totally Generic Message: $n_val $d_val" | mailx -s"Confidential" -a "$file" $emailAddress
-=======
-
-	file=$2
-
-	echo "Sending $file to $emailAddress"
-	
-	mailx -s"Confidential" -a $file $emailAddress
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
 
 	#Inform that email has been sent
 	echo "Email has been sent to $emailAddress"
@@ -38,20 +25,11 @@ function sendEmailTo() {
 #sendTextTo: sendTextTo 1234567891 file.txt
 function sendTextTo() {
         phoneNumber=$1
-<<<<<<< HEAD
         file=$2
-	n_val=$3
+		n_val=$3
         d_val=$4
         
 	providerIncorrect=1
-=======
-        file=$(cat $2)
-
-
-        echo "Sending $file to $phoneNumber"
-
-        providerIncorrect=1
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
 
         while [[ $providerIncorrect -eq 1 ]]
         do
@@ -60,40 +38,23 @@ function sendTextTo() {
 
                 case $provider in
                         T-Mobile)
-<<<<<<< HEAD
                                 echo "Sending text to T-Mobile number $phoneNumber"
                                 mailx -s "Confidential: $n_val $d_val" $phoneNumber@tmomail.net < "$file"
-=======
-                                echo "Sending text to T-Mobile number"
-                                echo $file | mailx $phoneNumber@vtmomail.com
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
                                 providerIncorrect=0
                                 ;;
                         Verizon)
                                 echo "Sending text to Verizon number"
-<<<<<<< HEAD
                                 mailx -s "Confidential: $n_val $d_val" $phoneNumber@vtext.com < "$file"
-=======
-                                echo $file | mailx $phoneNumber@vtmomail.com
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
                                 providerIncorrect=0
                                 ;;
                         Sprint)
                                 echo "Sending text to Sprint number"
-<<<<<<< HEAD
                                 mailx -s "Confidential: $n_val $d_val" $phoneNumber@messaging.sprintpcs.com < "$file"
-=======
-                                echo $file | mailx $phoneNumber@vtmomail.com
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
                                 providerIncorrect=0
                                 ;;
                         AT'&'T)
                                 echo "Sending text to AT&T number"
-<<<<<<< HEAD
                                 mailx -s "Confidential: $n_val $d_val" $phoneNumber@txt.att.net < "$file"
-=======
-                                echo $file | mailx $phoneNumber@txt.att.net
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
                                 providerIncorrect=0
                                 ;;
                         *)
@@ -109,7 +70,6 @@ function sendTextTo() {
         echo "Text has been sent to $phoneNumber"       
 }
 
-<<<<<<< HEAD
 function sendMessage(){
 	n_val=$1
 	d_val=$2
@@ -148,11 +108,6 @@ function sendMessage(){
 
 checkentered_message_d="Have you entered the message that you would like to decrypt into the text file 'discretetextfile.txt' (y/n)?"
 checkentered_message_e="Have you entered the message that you would like to encrypt into the text file 'discretetextfile.txt' (y/n)?"
-=======
-
-checkentered_message_d="Have you entered the message you would like to decrypt into the text file 'discretetextfile.txt' (y/n)?"
-checkentered_message_e="Have you entered the message you would like to encrypt into the text file 'discretetextfile.txt' (y/n)?"
->>>>>>> 7131fbf00230b5a83cea7126fb9cb14c61da4d45
 encryptdecrypt_message="Would you like to encrypt or decrypt a message or exit the program (e = encrypt / d = decrypt / x = exit) (*encrypt is the default setting)?"
 enterintofile_message="Would you like to enter the message into the text file manually or type it out below (m = manually / b = below) (*manually is the default setting)?"
 pleaseenter_message_d="Please enter the message that you'd like to decrypt in the 'discretetextfile.txt'"
