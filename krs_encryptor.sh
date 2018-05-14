@@ -26,7 +26,7 @@ function sendEmailTo() {
 function sendTextTo() {
         phoneNumber=$1
         file=$2
-		n_val=$3
+	n_val=$3
         d_val=$4
         
 	providerIncorrect=1
